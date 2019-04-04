@@ -27,6 +27,7 @@
 
 @implementation MJKKeepAliveThread
 
+
 +(MJKKeepAliveThread *)keepAliveThread {
     __block MJKKeepAliveThread *thread = nil;
     void (^block)(void) = ^{

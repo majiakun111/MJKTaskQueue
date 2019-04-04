@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MJKTaskQueue : NSObject
 
-- (instancetype)initWithMaxConcurrentTaskCount:(NSInteger)maxConcurrentTaskCount;
+- (instancetype)initWithMaxConcurrentTaskCount:(NSInteger)maxConcurrentTaskCount NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 @property(nonatomic, assign, readonly) NSInteger maxConcurrentTaskCount;
 
 - (void)addTask:(MJKTask *)task;
