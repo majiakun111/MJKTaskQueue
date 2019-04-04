@@ -101,8 +101,7 @@
     } else {
         [task.thread stop];
         [self.threads removeObject:task.thread];
-        
-        [self.executingTasks addObject:task];
+        [self.executingTasks removeObject:task];
         
         NSArray<MJKKeepAliveThread *> *threads = [self createThreadsWithCount:1];
         [self.threads addObjectsFromArray:threads];
@@ -119,7 +118,6 @@
     
     [self.executingTasks enumerateObjectsUsingBlock:^(MJKTask *  _Nonnull executingTask, NSUInteger idx, BOOL * _Nonnull stop) {
         [executingTask.thread stop];
-        
         [self.threads removeObject:executingTask.thread];
     }];
     
