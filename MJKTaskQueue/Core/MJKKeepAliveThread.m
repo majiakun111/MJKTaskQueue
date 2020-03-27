@@ -27,7 +27,6 @@
 
 @implementation MJKKeepAliveThread
 
-
 +(MJKKeepAliveThread *)keepAliveThread {
     __block MJKKeepAliveThread *thread = nil;
     void (^block)(void) = ^{
@@ -56,6 +55,10 @@
 }
 
 - (void)stop {
+    if (self.isStop) {
+        return;
+    }
+    
     [self performSelector:@selector(coreStop) onThread:self withObject:nil waitUntilDone:NO];
 }
 
